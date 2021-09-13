@@ -1,0 +1,22 @@
+{
+  "name": "packages",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:.public/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/HugoRobitaillie/hugorobitaillie_6_06092021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/HugoRobitaillie/hugorobitaillie_6_06092021/issues"
+  },
+  "homepage": "https://gitlab.com/HugoRobitaillie/hugorobitaillie_6_06092021#readme",
+  "dependencies": {
+    "sass": "^1.39.0"
+  }
+}

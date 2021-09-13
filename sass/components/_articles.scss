@@ -1,0 +1,29 @@
+.photograph-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &__link{
+        text-decoration: unset;
+        text-align: center;
+    }
+    &__img{
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 100%;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    p {
+        
+        text-align: center;
+        
+        > *{
+            display: block;
+        }
+    }
+}
