@@ -1,5 +1,5 @@
 {
-  "name": "packages",
+  "name": "hugorobitaillie_6_06092021",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -17,6 +17,6 @@
   },
   "homepage": "https://gitlab.com/HugoRobitaillie/hugorobitaillie_6_06092021#readme",
   "dependencies": {
-    "sass": "^1.39.0"
+    "sass": "^1.41.1"
   }
 }

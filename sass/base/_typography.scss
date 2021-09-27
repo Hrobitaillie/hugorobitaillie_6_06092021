@@ -10,7 +10,7 @@ h1{
     line-height: 47px;
     @extend %colorred;
 }
-a{
+span,a{
     font-family: 'DM Sans', sans-serif;
     @extend %colorred;
 }
