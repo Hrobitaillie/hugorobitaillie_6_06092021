@@ -19,6 +19,10 @@ ul {
   padding: 0;
 }
 
+.tag {
+  cursor: pointer;
+}
+
 .list__tags {
   font-style: normal;
   font-weight: 500;
@@ -29,6 +33,12 @@ ul {
   justify-content: center;
   gap: 5px;
 }
+.list__tags .checked {
+  background-color: #901C1C;
+}
+.list__tags .checked span {
+  color: white;
+}
 .list__tags .tag {
   border: 0.5px solid #C4C4C4;
   box-sizing: border-box;
@@ -37,6 +47,9 @@ ul {
 }
 .list__tags .tag:hover {
   background-color: #901C1C;
+}
+.list__tags .tag:hover span {
+  color: white;
 }
 .list__tags a {
   text-decoration: unset;
@@ -87,6 +100,10 @@ span, a {
   text-decoration: unset;
   text-align: center;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .photograph-card__img {
   width: 200px;
@@ -112,6 +129,12 @@ header #nav {
 }
 header #nav li:last-child {
   flex-shrink: 0;
+}
+header #nav nav ul .checked {
+  background-color: #901C1C;
+}
+header #nav nav ul .checked span {
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */

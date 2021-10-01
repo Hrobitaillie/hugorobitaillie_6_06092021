@@ -8,6 +8,10 @@
         text-decoration: unset;
         text-align: center;
         cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     &__img{
         width: 200px;

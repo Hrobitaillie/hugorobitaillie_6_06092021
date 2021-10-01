@@ -5,5 +5,15 @@ header{
         li:last-child{
             flex-shrink: 0;
         }
+        nav{
+            ul{
+                .checked{
+                    background-color: #901C1C;
+                    span{
+                        color: white;
+                    }
+                }
+            }
+        }
     }
 }

@@ -78,9 +78,11 @@ function pageLoading(data){
     }
     
     //adding photographers in body
+
     addingPhotographersIntoBody(photographers)
     function addingPhotographersIntoBody(photographers){
         //Creation d'une boucle afin de créer chaque carte de photographe
+        domMain.innerHTML="";
         for( let photographCount = 0; photographCount < photographers.length ; photographCount++){
 
 
@@ -90,7 +92,7 @@ function pageLoading(data){
             //insertion dans le html les éléments de chaque photographes.
             domMain.innerHTML += `
             <article class="photograph-card" id="card-${photographers[photographCount].id}">
-                    <a class="photograph-card__cover photograph-card__link" href="">
+                    <a class="photograph-card__cover photograph-card__link" href="?id=${photographers[photographCount].id}">
                         <div class="photograph-card__img">
                             <img src="./img/Photographers ID Photos/${photographers[photographCount].portrait}" alt="">
                         </div>
@@ -143,39 +145,62 @@ function pageLoading(data){
 
 
 
+    //creation d'un tableau pour les tags actifs
+    let active = [];
 
-    // Detecter le click sur un tag
-    // récupérer le contenu text du tag, elever le # et mettre en minuscule
-    // récup^érer les articles des photographes
-    // pour chaque article :
-        // verifier s'il contient le tag
-        //sinon mettre une class masquée a l'article
-
+    //récupération de tous les tags cliquables
     const allTagsClickable = document.querySelectorAll(".tag");
-    console.log(allTagsClickable);
+
     let tagClickedString;
+
+
     allTagsClickable.forEach(TagClicked => 
+        //Evenement click sur un tag
         TagClicked.addEventListener("click", (e) => {
+            //Selection de l'enfant "span" , de son texte et supression du hashtag
             TagClickedString = TagClicked.childNodes[1].textContent.slice(1);
-            console.log(TagClickedString);
-            
-            filterPhotographs()
+            //creation d'une liste de tous les tags actifs de la page via le aria label
+            let list = document.querySelectorAll(`[aria-labelledby="${TagClickedString}"]`);
 
-    })
-    );
-
-
-    //test de filtrage de photographs
-    function filterPhotographs(){
-        const photographsCards = document.querySelectorAll(".photograph-card");
-        photographsCards.forEach(element => {
-            console.log(element);
-            if(element){
-                console.log("true");
+            //condition si  le tag est n'est pas présent dans le tableau active
+            if(active.filter(valeur => valeur == TagClickedString)==""){
+                //le rajouter
+                active.push(TagClickedString);
+                //et ajouter une classe checked pour changer l'etat visible du tag
+                list.forEach(element => element.classList.add("checked"));
             }else{
-                console.log("false");
+                //suppresion du tag dui tableau s'il est déja actif en le selectionnant avec
+                //une condition d'égalité
+                for( let i = 0; i < active.length; i++){ 
+                    if (active[i] === TagClickedString) { 
+                        active.splice(i, 1); 
+                        list.forEach(element => element.classList.remove("checked"));
+                    }
+                }
             }
 
-        });
+            filterPhotographs();
+        })
+    );
+    
+    //test de filtrage de photographs
+    function filterPhotographs(){
+        for( let photographCount = 0; photographCount < photographers.length ; photographCount++){
+            let actualCard = document.getElementById("card-"+photographers[photographCount].id);
+            if (photographers[photographCount].tags.filter(valeur => active.includes(valeur))!="" || active.length===0){
+                actualCard.style.display="block";
+            }else{
+                actualCard.style.display="none";
+            }
+        }
+
     }
+    // const filter = "sports";
+    // const filteredPhotograph = photographers.filter(p => {
+    //     console.log(p);
+    //     return p.tags.includes(filter);
+
+    // })
+    // console.log(filteredPhotograph);
+    // addingPhotographersIntoBody(filteredPhotograph);
 }
