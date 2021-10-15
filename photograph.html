@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FishEye</title>
+    <link rel="stylesheet" href="./public/css/style.css">
+    <script src="https://kit.fontawesome.com/cfa68e1e0e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <ul id="nav">
+            <li><a href="index.html"><img src="./img/logo.svg" alt=""></a></li>
+        </ul>
+    </header>
+    <main id="main-photograph">
+        <section id="Encart" class="encart">
+            <div class="encart-container">
+                <div class="likes">
+
+                </div>
+                <div class="price">
+                    
+                </div>
+            </div>
+        </section>
+        <section id="photographAbout" class="about">
+            <div class="about-collumns">
+                <h1 class="name base-color-light"></h1>
+                <p class="location base-color"></p>
+                <p class="baseline"></p>
+                <ul class="photograph-list__tags list__tags"></ul>
+            </div>
+            <div class="about-collumns">
+                <div class="contactMe">Contactez moi</div>
+            </div>
+            <div class="about-collumns">
+                <div class="photograph-card__img"></div>
+            </div>
+        </section>
+        <section id="photographMedia" class="media">
+            <form action="" class="filter">
+                <div class="form__group">
+                    <label for="FilterBy">Trier par :</label>
+                    <div class="custom-select">
+                        <select name="FilterBy" id="FilterBy" >
+                            <option value="Popularité">Popularité</option>
+                            <option value="Date">Date</option>
+                            <option value="Titre">Titre</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <div class="media-content">
+            </div>
+        </section>
+    </main>
+    <script type="module" src="/js/PhotographerPage/photographerPage.js"></script> <!-- contient le fetch + appel de la fonction pageLoading ()  -->
+</body>
+</html>

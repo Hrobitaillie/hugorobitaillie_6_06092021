@@ -3,12 +3,16 @@ span, a, h1 {
   color: #901C1C;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 main {
   justify-content: space-evenly;
   display: flex;
   flex-wrap: wrap;
   gap: 7rem;
-  max-width: 1200px;
+  max-width: 1440px;
   margin: auto;
 }
 
@@ -67,11 +71,11 @@ ul {
 }
 
 .base-color-light {
-  color: #e16464;
+  color: #DB8876;
 }
 
 .second-color-light {
-  color: #595959;
+  color: #DB8876;
 }
 
 body {
@@ -123,6 +127,49 @@ span, a {
   display: block;
 }
 
+.media {
+  width: 350px;
+}
+.media-cover {
+  width: 100%;
+  height: 300px;
+}
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+.media-infos {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  color: #901C1C;
+}
+.media-infos * {
+  margin: 0;
+}
+.media-title {
+  font-size: 24px;
+  line-height: 31px;
+}
+.media-likes {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.media i {
+  color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #901C1C;
+  cursor: pointer;
+}
+
 header #nav {
   justify-content: space-between;
   align-items: center;
@@ -135,6 +182,172 @@ header #nav nav ul .checked {
 }
 header #nav nav ul .checked span {
   color: white;
+}
+
+.encart {
+  width: 376px;
+  height: 89px;
+  position: fixed;
+  background-color: #DB8876;
+  bottom: 0;
+  right: 35px;
+}
+.encart-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 31px;
+}
+.encart-container .likes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+#main-photograph {
+  gap: 3rem;
+}
+
+#photographAbout {
+  display: flex;
+  width: 100%;
+  max-width: 1240px;
+  justify-content: start;
+  background: #FAFAFA;
+  border-radius: 5px;
+  padding: 50px;
+}
+#photographAbout > :first-child h1 {
+  margin: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 64px;
+  line-height: 83px;
+}
+#photographAbout > :first-child .location {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 31px;
+  margin: 0;
+  margin-bottom: 20px;
+}
+#photographAbout > :first-child .baseline {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 23px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+#photographAbout > :first-child ul {
+  margin: 0;
+}
+#photographAbout > :nth-child(2) {
+  padding: 0 4rem;
+}
+#photographAbout > :nth-child(2) .contactMe {
+  padding: 20px 10px;
+  background-color: #901C1C;
+  border-radius: 5px;
+  color: white;
+}
+#photographAbout > * {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+#photographAbout > :last-child {
+  margin-left: auto;
+}
+#photographAbout .list__tags {
+  justify-content: start;
+}
+
+#photographMedia {
+  width: 100%;
+  max-width: 1240px;
+}
+#photographMedia .filter label {
+  font-weight: 500;
+}
+#photographMedia .form__group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+#photographMedia .custom-select {
+  position: relative;
+  z-index: 10;
+  /* style the items (options), including the selected item: */
+  /* Style items (options): */
+  /* Hide the items when the select box is closed: */
+}
+#photographMedia .custom-select select {
+  display: none;
+}
+#photographMedia .custom-select .select-selected {
+  padding: 20px 10px;
+  background-color: #901C1C;
+  border-radius: 5px;
+  color: white;
+  width: 150px;
+  /* Style the arrow inside the select element: */
+  /* Point the arrow upwards when the select box is open (active): */
+}
+#photographMedia .custom-select .select-selected:after {
+  position: absolute;
+  content: "\f078";
+  font-family: "FontAwesome";
+  top: 12px;
+  right: 30px;
+  width: 0;
+  height: 0;
+}
+#photographMedia .custom-select .select-selected.select-arrow-active {
+  border-radius: 5px 5px 0 0;
+}
+#photographMedia .custom-select .select-selected.select-arrow-active:after {
+  transform: rotateX(180deg);
+  top: 27px;
+}
+#photographMedia .custom-select .select-items div, #photographMedia .custom-select .select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+#photographMedia .custom-select .select-items {
+  position: absolute;
+  background-color: #901C1C;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+#photographMedia .custom-select .select-items div {
+  border-top: 1px solid white;
+  margin: 0 16px;
+  padding: 8px 0;
+}
+#photographMedia .custom-select .select-hide {
+  display: none;
+}
+#photographMedia .custom-select .select-items div:hover, #photographMedia .custom-select .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+#photographMedia .media-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem 0;
+  height: fit-content;
 }
 
 /*# sourceMappingURL=style.css.map */

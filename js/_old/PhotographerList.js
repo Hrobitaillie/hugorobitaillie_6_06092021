@@ -3,12 +3,15 @@ fetch("./database.json")
         return response.json();
     })
     .then(data =>{
-        console.log(data);
         pageLoading(data);
     })
     .catch(err => {
         console.log(err);
     });
+
+
+
+
 
 function pageLoading(data){
     //initalisation des variables DOM
@@ -25,10 +28,11 @@ function pageLoading(data){
 
 
 
-    
+
     //getting tag list
-    console.log("Getting tag list...");
     gettingTags();
+
+    // import {gettingTags} from './GettingTags.js';
     function gettingTags(){
 
         //map depuis un tableau, création de nouveau tableau
@@ -60,8 +64,14 @@ function pageLoading(data){
 
         //suppression du dernier élément ("")
         tags.pop();
-        console.log(tags);
     }
+
+
+
+
+
+
+
 
     //adding tags to navbar
     addingTagsIntoNavbar();
@@ -76,7 +86,14 @@ function pageLoading(data){
             `;
         }
     }
-    
+
+
+
+
+
+
+
+
     //adding photographers in body
 
     addingPhotographersIntoBody(photographers)
@@ -92,7 +109,7 @@ function pageLoading(data){
             //insertion dans le html les éléments de chaque photographes.
             domMain.innerHTML += `
             <article class="photograph-card" id="card-${photographers[photographCount].id}">
-                    <a class="photograph-card__cover photograph-card__link" href="?id=${photographers[photographCount].id}">
+                    <a class="photograph-card__cover photograph-card__link" href="photograph.html?id=${photographers[photographCount].id}">
                         <div class="photograph-card__img">
                             <img src="./img/Photographers ID Photos/${photographers[photographCount].portrait}" alt="">
                         </div>
@@ -145,13 +162,17 @@ function pageLoading(data){
 
 
 
+
+
+
+
     //creation d'un tableau pour les tags actifs
     let active = [];
 
     //récupération de tous les tags cliquables
     const allTagsClickable = document.querySelectorAll(".tag");
 
-    let tagClickedString;
+    let TagClickedString;
 
 
     allTagsClickable.forEach(TagClicked => 
@@ -182,7 +203,14 @@ function pageLoading(data){
             filterPhotographs();
         })
     );
-    
+
+
+
+
+
+
+
+
     //test de filtrage de photographs
     function filterPhotographs(){
         for( let photographCount = 0; photographCount < photographers.length ; photographCount++){
@@ -193,7 +221,6 @@ function pageLoading(data){
                 actualCard.style.display="none";
             }
         }
-
     }
     // const filter = "sports";
     // const filteredPhotograph = photographers.filter(p => {
@@ -203,4 +230,13 @@ function pageLoading(data){
     // })
     // console.log(filteredPhotograph);
     // addingPhotographersIntoBody(filteredPhotograph);
+
+
+
+
+
+
+
+
+
 }

@@ -1,0 +1,24 @@
+.encart{
+    width: 376px;
+    height: 89px;
+    position: fixed;
+    background-color: $light_base-color;
+    bottom: 0;
+    right: 35px;
+    &-container{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 31px;
+        .likes{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;        }
+    }
+}
