@@ -186,6 +186,8 @@ function pageLoading(data){
             //condition si  le tag est n'est pas présent dans le tableau active
             if(active.filter(valeur => valeur == TagClickedString)==""){
                 //le rajouter
+                console.log(TagClickedString);
+
                 active.push(TagClickedString);
                 //et ajouter une classe checked pour changer l'etat visible du tag
                 list.forEach(element => element.classList.add("checked"));
@@ -199,8 +201,14 @@ function pageLoading(data){
                     }
                 }
             }
-
-            filterPhotographs();
+            const filteredPhotograph = photographers.filter(p => {
+                console.log(active)
+                return p.tags.includes(active);
+        
+            })
+            console.log(filteredPhotograph);
+            // filterPhotographs();
+            addingPhotographersIntoBody(filteredPhotograph);
         })
     );
 
@@ -212,31 +220,16 @@ function pageLoading(data){
 
 
     //test de filtrage de photographs
-    function filterPhotographs(){
-        for( let photographCount = 0; photographCount < photographers.length ; photographCount++){
-            let actualCard = document.getElementById("card-"+photographers[photographCount].id);
-            if (photographers[photographCount].tags.filter(valeur => active.includes(valeur))!="" || active.length===0){
-                actualCard.style.display="block";
-            }else{
-                actualCard.style.display="none";
-            }
-        }
-    }
+    // function filterPhotographs(){
+    //     for( let photographCount = 0; photographCount < photographers.length ; photographCount++){
+    //         let actualCard = document.getElementById("card-"+photographers[photographCount].id);
+    //         if (photographers[photographCount].tags.filter(valeur => active.includes(valeur))!="" || active.length===0){
+    //             actualCard.style.display="block";
+    //         }else{
+    //             actualCard.style.display="none";
+    //         }
+    //     }
+    // }
     // const filter = "sports";
-    // const filteredPhotograph = photographers.filter(p => {
-    //     console.log(p);
-    //     return p.tags.includes(filter);
-
-    // })
     // console.log(filteredPhotograph);
-    // addingPhotographersIntoBody(filteredPhotograph);
-
-
-
-
-
-
-
-
-
 }
