@@ -4,6 +4,11 @@
     align-items: center;
     flex-direction: column;
     width: 313px;
+    &__title{
+        @include tablet{
+            margin-bottom: 0;
+        }
+    }
     &__link{
         text-decoration: unset;
         text-align: center;
@@ -25,8 +30,22 @@
         }
     }
     p {
-        
         text-align: center;
+        @include tablet{
+            .base-color{
+                font-size: 13px;
+                line-height: 17px;
+            }
+            .second-color{
+                font-size: 10px;
+                line-height: 13px;
+            }
+            .second-color-light{
+                font-size: 9px;
+                line-height: 12px;
+            }
+            margin: 0;
+        }
         
         > *{
             display: block;

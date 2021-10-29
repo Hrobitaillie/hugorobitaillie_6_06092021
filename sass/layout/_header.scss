@@ -2,8 +2,39 @@ header{
     #nav{
         justify-content: space-between;
         align-items: center;
+        flex-wrap: wrap;
+        row-gap: 40px;
+        @include tablet{
+            padding: 20px;
+        }
+        img{
+            @include tablet{
+                width: 150px;
+            }
+        }
         li:last-child{
+            
             flex-shrink: 0;
+        }
+        li:nth-child(1){
+            @include tablet{
+                order:2;
+                
+            }
+        }
+        li:nth-child(2){
+            @include tablet{
+                order:3;
+            }
+        }
+        li:nth-child(3){
+            @include tablet{
+                order:2;
+                h1{                 
+                    font-size: 14px;
+                    line-height: 18px;
+                }
+            }
         }
         nav{
             ul{

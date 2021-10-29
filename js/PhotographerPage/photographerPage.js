@@ -3,6 +3,8 @@ import { filterDropDown } from '../PhotographerPage/filterDropDown.js';
 import { verifySessionStorage } from '../Utils/gettingData.js';
 import { mediaBuilder } from '../Component/models.js'
 import { filtering } from './mediaContent.js';
+import { openLightBox } from './lightBox.js';
+import { contactModal } from './modal.js';
 
 await verifySessionStorage();
 /*
@@ -102,3 +104,19 @@ hearts.forEach( heartClicked =>
     })
 );
 
+
+const mediaCover = document.querySelectorAll('.media-cover');
+console.log(mediaCover);
+
+mediaCover.forEach(mediaCover => mediaCover.addEventListener("click",openLightBox));
+
+const contactbutton = document.querySelector(".contactMe");
+contactbutton.addEventListener("click",() => {contactModal(activePhotograph)});
+
+
+let test = []
+
+for(let i = 0; i<1000; i++){
+    test += i+",";
+}
+console.log(test);

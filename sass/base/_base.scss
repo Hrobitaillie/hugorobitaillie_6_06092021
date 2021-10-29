@@ -8,6 +8,9 @@ main{
     gap: 7rem;
     max-width: 1440px;
     margin: auto;
+    @include tablet{
+        row-gap: 2rem;
+    }
 }
 ul{
     display: flex;
@@ -27,6 +30,11 @@ ul{
     flex-wrap: wrap;
     justify-content: center;
     gap: 5px;
+    @include tablet{
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 500;
+    }
     .checked{
         background-color: #901C1C;
         span{
@@ -65,4 +73,7 @@ ul{
 }
 .second-color-light{
     color:$light_base-color;
+}
+.no-scroll{
+    overflow: hidden;
 }

@@ -56,6 +56,51 @@
             </div>
         </section>
     </main>
+    <section id="lightbox" class="lightbox" hidden>
+        <div class="lightbox-container" aria-label="image closeup view">
+            <div class="lightbox-row">
+                <i class="fas fa-chevron-left" aria-label="Previous image"></i>
+            </div>
+            <div class="lightbox-image">
+                <img class="image-closeup" src="./img/243/Event_SeasideWedding.jpg" alt="">
+                <p class="image-title">Event Pinto Wedding</p>
+            </div>
+            <div class="lightbox-row">
+                <i class="fas fa-chevron-right" aria-label="Nex image"></i>
+                <i class="fas fa-times" aria-label="Close dialog"></i>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="modal">
+        <div class="modal--container">
+            <i class="fas fa-times" aria-label="Close dialog"></i>
+            <h1 class="modal--title" aria-labelledby="2">Contactez moi <br> <span class="modal--title__name"></span></h1>
+            <form id="form" action="" name="contact" method="get">
+                <div>
+                    <label for="prenom">Prénom</label>
+                    <input id="first" type="text" name="prenom" aria-labelledby="3">
+                    <div id="firstError"></div>
+                </div>
+                <div>
+                    <label for="nom">Nom</label>
+                    <input id="last" type="text" name="nom" aria-labelledby="5">
+                    <div id="lastError"></div>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input id="email" type="mail" name="email" aria-labelledby="7">
+                    <div id="emailError"></div>
+                </div>
+                <div>
+                    <label for="text">Votre Message</label>
+                    <textarea name="" id="message" cols="30" rows="10" aria-labelledby="9"></textarea>
+                    <div id="messageError"></div>
+                </div>
+                <input class="btn-submit" type="submit" value="Envoyer"
+              />
+            </form>
+        </div>
+    </section>
     <script type="module" src="/js/PhotographerPage/photographerPage.js"></script> <!-- contient le fetch + appel de la fonction pageLoading ()  -->
 </body>
 </html>
