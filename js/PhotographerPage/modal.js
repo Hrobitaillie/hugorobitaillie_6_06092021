@@ -2,6 +2,9 @@ export function contactModal(activePhotograph){
     let modal = document.getElementById('contact');
     modal.style.display="flex";
 
+    const modalContent = document.querySelector('.modal--container');
+    modalContent.ariaLabel=`Contact me ${activePhotograph.name}`;
+
     let closeModal = modal.querySelector('.fa-times');
     closeModal.addEventListener("click",()=>{modal.style.display = "none"});
 
@@ -14,8 +17,8 @@ export function contactModal(activePhotograph){
 
     //DOM Elements validation
     const form = document.getElementById('form');
-    const first = document.getElementById('first');
-    const last = document.getElementById('last');
+    const first = document.getElementById('prenom');
+    const last = document.getElementById('nom');
     const email = document.getElementById('email');
     const message = document.getElementById('message');
 

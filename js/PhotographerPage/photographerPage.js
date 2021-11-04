@@ -112,11 +112,3 @@ mediaCover.forEach(mediaCover => mediaCover.addEventListener("click",openLightBo
 
 const contactbutton = document.querySelector(".contactMe");
 contactbutton.addEventListener("click",() => {contactModal(activePhotograph)});
-
-
-let test = []
-
-for(let i = 0; i<1000; i++){
-    test += i+",";
-}
-console.log(test);

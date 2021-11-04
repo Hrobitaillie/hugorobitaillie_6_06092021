@@ -10,6 +10,8 @@ export function openLightBox(){
     lightbox.style.display="flex";
 
     loadLightboxContent(mediaData);
+    lightboxImage.ariaLabel=`${mediaData.dataset.title}`
+
 
     function loadLightboxContent(mediaData){
         if(mediaData.dataset.type === 'image'){
@@ -38,6 +40,10 @@ export function openLightBox(){
         }
         if(touche === 'ArrowLeft'){
             previousMedia()
+        }
+        if(touche === 'Escape'){
+            lightbox.style.display = "none";
+            document.body.classList.remove("no-scroll");
         }
     })
 

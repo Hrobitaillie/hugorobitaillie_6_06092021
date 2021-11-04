@@ -39,7 +39,7 @@ function dataSorter(data){
 }
 
 
-export function getPhotographers(){
+export async function getPhotographers(){
     const allPhotographers = sessionStorage.getItem('photographers');
     const result = JSON.parse(allPhotographers);
     return result;
@@ -48,6 +48,7 @@ export function getPhotographers(){
 export async function verifySessionStorage(){
     if(sessionStorage.length < 2){
         await getData();
+        console.log("getting data");
     }else{
         console.log("Déja chargé");
         await getData();

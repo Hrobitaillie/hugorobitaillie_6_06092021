@@ -1,9 +1,11 @@
 
 export function addingPhotographersIntoBody(allPhotographers,domMain){
+
+
+
         //Creation d'une boucle afin de créer chaque carte de photographe
         domMain.innerHTML="";
         for( let photographCount = 0; photographCount < allPhotographers.length ; photographCount++){
-
 
                         //console.log("Creation de la carte de " + allPhotographers[photographCount].name)
 
@@ -11,9 +13,9 @@ export function addingPhotographersIntoBody(allPhotographers,domMain){
             //insertion dans le html les éléments de chaque photographes.
             domMain.innerHTML += `
             <article class="photograph-card" id="card-${allPhotographers[photographCount].id}">
-                    <a class="photograph-card__cover photograph-card__link" href="photograph.html?id=${allPhotographers[photographCount].id}">
+                    <a class="photograph-card__cover photograph-card__link" href="photograph.html?id=${allPhotographers[photographCount].id}" aria-label="${allPhotographers[photographCount].name}">
                         <div class="photograph-card__img">
-                            <img src="./img/Photographers ID Photos/${allPhotographers[photographCount].portrait}" alt="">
+                            <img src="./img/Photographers ID Photos/${allPhotographers[photographCount].portrait}" alt="Photograph: ${allPhotographers[photographCount].name} Avatar">
                         </div>
                         <h2 class="photograph-card__title base-color-light">${allPhotographers[photographCount].name}</h2>
                     </a>
@@ -51,7 +53,7 @@ export function addingPhotographersIntoBody(allPhotographers,domMain){
 
 
                 DOMPhotographCardTags.innerHTML += `
-                    <li class="tag" aria-labelledby="${allPhotographers[photographCount].tags[j]}">
+                    <li class="tag" aria-label="${allPhotographers[photographCount].tags[j]}">
                         <span >#${allPhotographers[photographCount].tags[j]}</span>
                     </li>
                 </ul>
@@ -78,13 +80,13 @@ function photographerData(activePhotograph,name,location,baseline,tags,avatar,ph
     for(let j = 0; j < tagLength ; j++){
 
         tags.innerHTML += `
-        <li class="tag" aria-labelledby="${activePhotograph.tags[j]}">
+        <li class="tag" aria-label="${activePhotograph.tags[j]} Tag">
             <span >#${activePhotograph.tags[j]}</span>
         </li>
         `
     }
 
-    avatar.innerHTML= `<img src="./img/Photographers ID Photos/${activePhotograph.portrait}" alt="">`;
+    avatar.innerHTML= `<img src="./img/Photographers ID Photos/${activePhotograph.portrait}" alt="${activePhotograph.name}">`;
 
     photographLikes.innerHTML = `<p>${activePhotograph.likes}</p> <i class="fas fa-heart"></i>`;
     price.innerHTML = `<p>${activePhotograph.price}€/jour `;
