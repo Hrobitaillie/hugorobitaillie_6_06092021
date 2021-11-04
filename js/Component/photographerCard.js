@@ -6,7 +6,10 @@ export function addingPhotographersIntoBody(allPhotographers,domMain){
         //Creation d'une boucle afin de créer chaque carte de photographe
         domMain.innerHTML="";
         for( let photographCount = 0; photographCount < allPhotographers.length ; photographCount++){
-
+            let pathPortrait = `${allPhotographers[photographCount].portrait}`;
+            //replace .jpeg to .webp
+            //pathMedia = pathMedia.replace(/\.[^/.]+$/, "");
+            pathPortrait = pathPortrait+'.webp';
                         //console.log("Creation de la carte de " + allPhotographers[photographCount].name)
 
 
@@ -15,7 +18,7 @@ export function addingPhotographersIntoBody(allPhotographers,domMain){
             <article class="photograph-card" id="card-${allPhotographers[photographCount].id}">
                     <a class="photograph-card__cover photograph-card__link" href="photograph.html?id=${allPhotographers[photographCount].id}" aria-label="${allPhotographers[photographCount].name}">
                         <div class="photograph-card__img">
-                            <img src="./img/Photographers ID Photos/${allPhotographers[photographCount].portrait}" alt="Photograph: ${allPhotographers[photographCount].name} Avatar">
+                            <img src="./img/Photographers ID Photos/${pathPortrait}" alt="Photograph: ${allPhotographers[photographCount].name} Avatar">
                         </div>
                         <h2 class="photograph-card__title base-color-light">${allPhotographers[photographCount].name}</h2>
                     </a>
@@ -85,8 +88,11 @@ function photographerData(activePhotograph,name,location,baseline,tags,avatar,ph
         </li>
         `
     }
-
-    avatar.innerHTML= `<img src="./img/Photographers ID Photos/${activePhotograph.portrait}" alt="${activePhotograph.name}">`;
+    let pathPortrait = `${activePhotograph.portrait}`;
+    //replace .jpeg to .webp
+    //pathMedia = pathMedia.replace(/\.[^/.]+$/, "");
+    pathPortrait = pathPortrait+'.webp';
+    avatar.innerHTML= `<img src="./img/Photographers ID Photos/${pathPortrait}" alt="${activePhotograph.name}">`;
 
     photographLikes.innerHTML = `<p>${activePhotograph.likes}</p> <i class="fas fa-heart"></i>`;
     price.innerHTML = `<p>${activePhotograph.price}€/jour `;
