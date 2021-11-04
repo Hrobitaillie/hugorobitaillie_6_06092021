@@ -5,6 +5,7 @@ import { mediaBuilder } from '../Component/models.js'
 import { filtering } from './mediaContent.js';
 import { openLightBox } from './lightBox.js';
 import { contactModal } from './modal.js';
+import { mediaTagFiltering } from './mediaTagFilter.js';
 
 await verifySessionStorage();
 /*
@@ -64,6 +65,8 @@ let selectSelected = document.querySelector(".select-selected");
     avec le filtre par défaut (popularité)
 */
 filtering(currentPhotographerMedias,selectSelected);
+
+mediaTagFiltering(currentPhotographerMedias)
 
 /*
     Appel de la fonction filtering après un clic

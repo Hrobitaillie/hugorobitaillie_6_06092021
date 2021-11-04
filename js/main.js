@@ -37,6 +37,14 @@ async function startup(){
     addingPhotographersIntoBody(allPhotographers,domMain);
 
     filtering(allPhotographers);
+
+
+    document.addEventListener('keydown',(event)=>{
+        const touche = event.key;
+        if(touche === 'Enter'){
+            event.click;
+        }
+    })
 }
 
 startup();

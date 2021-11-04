@@ -38,7 +38,9 @@ export function addingTagsIntoNavbar(tags,domListOfTags){
         //ajout  dans le dom de chaque tag
         domListOfTags.innerHTML += `
         <li class="tag nav-tag" aria-label="${tag} Tag">
+        <a href="#">
         <span >#${tag}</span>
+        </a>
         </li>
         `;
     }

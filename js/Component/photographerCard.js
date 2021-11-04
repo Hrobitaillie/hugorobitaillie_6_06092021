@@ -84,7 +84,9 @@ function photographerData(activePhotograph,name,location,baseline,tags,avatar,ph
 
         tags.innerHTML += `
         <li class="tag" aria-label="${activePhotograph.tags[j]} Tag">
-            <span >#${activePhotograph.tags[j]}</span>
+            <a href="#">
+                <span >#${activePhotograph.tags[j]}</span>
+            </a>
         </li>
         `
     }

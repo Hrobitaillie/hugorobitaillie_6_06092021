@@ -21,6 +21,7 @@ export function mediaBuilder(currentPhotographerMedias){
                     data-type = "image"
                     data-src = "${pathMedia}"
                     data-likes = "${element.likes}"
+                    data-tags = "${element.tags}"
                     aria-label="${element.title}, closeup view"
                     >
                     <img src="${pathMedia}" alt="">
@@ -42,6 +43,7 @@ export function mediaBuilder(currentPhotographerMedias){
                     data-type = "video"
                     data-src = "../img/${element.photographerId}/${element.video}"
                     data-likes = "${element.likes}"
+                    data-tags = "${element.tags}"
                     aria-label="${element.title}, closeup view"
                     >
                     <video src="../img/${element.photographerId}/${element.video}" alt="">

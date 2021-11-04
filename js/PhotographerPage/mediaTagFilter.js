@@ -1,4 +1,4 @@
-export function filtering(allPhotographers) {
+export function mediaTagFiltering(allMedias) {
   //creation d'un tableau pour les tags actifs
   let active = [];
 
@@ -11,11 +11,16 @@ export function filtering(allPhotographers) {
     //Evenement click sur un tag
     TagClicked.addEventListener("click", (e) => {
       //Selection de l'enfant "span" , de son texte et supression du hashtag
-      TagClickedString = TagClicked.childNodes[1].childNodes[1].textContent.slice(1);
+      TagClickedString =
+        TagClicked.childNodes[1].childNodes[1].textContent.slice(1);
       console.log(TagClickedString);
       //creation d'une liste de tous les tags actifs de la page via le aria label
-      let list = document.querySelectorAll(`[aria-label="${TagClickedString}"]`);
-      let navTag = document.querySelector(`[aria-label="${TagClickedString} Tag"]`);
+      let list = document.querySelectorAll(
+        `[aria-label="${TagClickedString}"]`
+      );
+      let navTag = document.querySelector(
+        `[aria-label="${TagClickedString} Tag"]`
+      );
       //condition si  le tag est n'est pas présent dans le tableau active
       if (active.filter((valeur) => valeur == TagClickedString) == "") {
         //le rajouter
@@ -35,29 +40,24 @@ export function filtering(allPhotographers) {
         }
       }
 
-      filterPhotographs();
+      filterMedia();
     })
   );
 
   //test de filtrage de photographs
-  function filterPhotographs() {
-    for (
-      let photographCount = 0;
-      photographCount < allPhotographers.length;
-      photographCount++
-    ) {
-      let actualCard = document.getElementById(
-        "card-" + allPhotographers[photographCount].id
-      );
+  function filterMedia() {
+    let mediasWanted = document.querySelectorAll()`[data-tags= ${TagClickedString}]`);
+    for (let mediacount = 0; mediacount < allMedias.length; mediacount++) {
+      let actualMedia = document.getElementById("card-" + allMedias.id);
       if (
-        allPhotographers[photographCount].tags.filter((valeur) =>
+        allMedias[mediacount].tags.filter((valeur) =>
           active.includes(valeur)
         ) != "" ||
         active.length === 0
       ) {
-        actualCard.style.display = "block";
+        actualMedia.style.display = "block";
       } else {
-        actualCard.style.display = "none";
+        actualMedia.style.display = "none";
       }
     }
   }
