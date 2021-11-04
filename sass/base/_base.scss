@@ -1,6 +1,9 @@
 * {
     box-sizing: border-box;
 }
+body{
+    margin: 0;
+}
 main{
     justify-content: space-evenly;
     display: flex;
@@ -8,8 +11,10 @@ main{
     gap: 7rem;
     max-width: 1440px;
     margin: auto;
+    padding: 50px;
     @include tablet{
         row-gap: 2rem;
+        padding: 20px;
     }
 }
 ul{

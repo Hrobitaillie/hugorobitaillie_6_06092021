@@ -1,5 +1,8 @@
 #main-photograph{
     gap: 3rem;
+    @include tablet {
+        gap: 1rem;
+    }
 }
 #photographAbout{
     display: flex;
@@ -8,14 +11,27 @@
     justify-content: start;
     background: #FAFAFA;
     border-radius: 5px;
-    padding: 50px;
+    gap: 4rem;
+    position: relative;
+    @include tablet{
+        gap: 0;
+        background: #fff;
+    }
     >:first-child{
+        @include tablet{
+            width: 100%;
+        }
         h1{
             margin: 0;
             font-style: normal;
             font-weight: normal;
             font-size: 64px;
             line-height: 83px;
+            @include tablet{
+                font-size: 36px;
+                line-height: 47px;
+                padding-right:100px ;
+            }
         }
         .location{
             font-style: normal;
@@ -24,6 +40,11 @@
             line-height: 31px;
             margin: 0;
             margin-bottom: 20px;
+            @include tablet{
+                font-size: 13px;
+                line-height: 17px;
+                margin-bottom: 10px;
+            }
         }
         .baseline{
             font-style: normal;
@@ -32,13 +53,20 @@
             line-height: 23px;
             margin: 0;
             margin-bottom: 10px;
+            @include tablet{
+                font-size: 13px;
+                line-height: 17px;
+                margin-bottom: 10px;
+            }
         }
         ul{
             margin: 0;
         }
     }
     >:nth-child(2){
-        padding: 0 4rem;
+        @include tablet{
+        
+        }
         .contactMe{
             padding: 20px 10px;
             background-color: $base_color;
@@ -47,8 +75,13 @@
             cursor: pointer;
             @include tablet{
                 position: fixed;
-                bottom: 0;
-
+                bottom: 28px;
+                font-weight: bold;
+                font-size: 18px;
+                padding: 18px;
+                line-height: 1;
+                left: 50%;
+                transform: translateX(-50%);
             }
         }
     }
@@ -59,6 +92,11 @@
     }
     >:last-child{
         margin-left: auto;
+        @include tablet{
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
     }
     .list__tags{
         justify-content: start;
@@ -68,6 +106,9 @@
     width: 100%;
     max-width: 1240px;
     .filter{
+        @include tablet{
+            display: none;
+        }
         label{
             font-weight: 500;
         }
@@ -150,5 +191,8 @@
         gap: 2rem;
         padding: 2rem 0;
         height: fit-content;
+        @include tablet{
+            justify-content: space-around;
+        }
     }
 }

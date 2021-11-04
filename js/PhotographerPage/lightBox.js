@@ -7,7 +7,7 @@ export function openLightBox(){
     let mediaData = this;
     let articleDisplayed = this.parentElement;
     document.body.classList.add("no-scroll");
-    lightbox.style.display="block";
+    lightbox.style.display="flex";
 
     loadLightboxContent(mediaData);
 
