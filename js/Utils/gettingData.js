@@ -1,3 +1,4 @@
+import { photographBuilder } from "../factory.js";
 async function getData(){
     const response = await fetch("./database.json");
     const data = await response.json();
@@ -7,35 +8,23 @@ async function getData(){
 function dataSorter(data){
     const photographersData = data.photographers;
     const photographersMedia = data.media;
-    const photograph = [];
+    const photographers = [];
 
     photographersData.forEach(({
-        id,city,country,tags,tagline,price,portrait,name
-    }) =>{
-        const photographMedia = photographersMedia
-        .filter((photographersMedia) => photographersMedia.photographerId === id);
-
+        name,id,city,country,tags,tagline,price,portrait
+    })=> {
+        const photographMedia = photographersMedia.filter((photographersMedia) => photographersMedia.photographerId === id);
         let mediaLike = 0;
         const TotalLikes = photographMedia.forEach(media => {
             mediaLike = mediaLike + media.likes;
         });
-        
-        const result = {
-            id,
-            city,
-            country,
-            tags,
-            tagline,
-            price,
-            portrait,
-            name,
-            medias: photographMedia,
-            likes: mediaLike
-        };
-        photograph.push(result);
+
+        let photograph = new photographBuilder(name,id,city,country,tags,tagline,price,portrait,photographMedia,mediaLike);
+        photographers.push(photograph);
     });
-    return photograph;
-    
+    console.log("Photographes après le builder:");
+    console.log(photographers);
+    return photographers;
 }
 
 

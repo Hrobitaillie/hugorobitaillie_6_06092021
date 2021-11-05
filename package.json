@@ -17,6 +17,7 @@
   },
   "homepage": "https://gitlab.com/HugoRobitaillie/hugorobitaillie_6_06092021#readme",
   "dependencies": {
+    "nodemon": "^2.0.14",
     "sass": "^1.41.1"
   }
 }

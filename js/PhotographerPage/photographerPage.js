@@ -115,3 +115,11 @@ mediaCover.forEach(mediaCover => mediaCover.addEventListener("click",openLightBo
 
 const contactbutton = document.querySelector(".contactMe");
 contactbutton.addEventListener("click",() => {contactModal(activePhotograph)});
+
+document.addEventListener('keydown',(event)=>{
+    if(event.key === 'Enter'){
+        console.log(event.target);
+        console.log("Touche Enter appuyée");
+        event.target.click();
+    }
+})

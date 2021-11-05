@@ -11,7 +11,8 @@ export function filtering(allPhotographers) {
     //Evenement click sur un tag
     TagClicked.addEventListener("click", (e) => {
       //Selection de l'enfant "span" , de son texte et supression du hashtag
-      TagClickedString = TagClicked.childNodes[1].childNodes[1].textContent.slice(1);
+      console.log(TagClicked);
+      TagClickedString = TagClicked.childNodes[1].textContent.slice(1);
       console.log(TagClickedString);
       //creation d'une liste de tous les tags actifs de la page via le aria label
       let list = document.querySelectorAll(`[aria-label="${TagClickedString}"]`);
@@ -30,7 +31,7 @@ export function filtering(allPhotographers) {
           if (active[i] === TagClickedString) {
             active.splice(i, 1);
             list.forEach((element) => element.classList.remove("checked"));
-            navTag.classList.removew("checked");
+            navTag.classList.remove("checked");
           }
         }
       }

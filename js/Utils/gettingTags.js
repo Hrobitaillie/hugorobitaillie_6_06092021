@@ -37,10 +37,8 @@ export function addingTagsIntoNavbar(tags,domListOfTags){
     for(tag of tags){
         //ajout  dans le dom de chaque tag
         domListOfTags.innerHTML += `
-        <li class="tag nav-tag" aria-label="${tag} Tag">
-        <a href="#">
+        <li tabindex="0" class="tag nav-tag" aria-label="${tag} Tag">
         <span >#${tag}</span>
-        </a>
         </li>
         `;
     }

@@ -12,7 +12,7 @@ export function mediaTagFiltering(allMedias) {
     TagClicked.addEventListener("click", (e) => {
       //Selection de l'enfant "span" , de son texte et supression du hashtag
       TagClickedString =
-        TagClicked.childNodes[1].childNodes[1].textContent.slice(1);
+        TagClicked.childNodes[1].textContent.slice(1);
       console.log(TagClickedString);
       //creation d'une liste de tous les tags actifs de la page via le aria label
       let list = document.querySelectorAll(
@@ -35,30 +35,42 @@ export function mediaTagFiltering(allMedias) {
           if (active[i] === TagClickedString) {
             active.splice(i, 1);
             list.forEach((element) => element.classList.remove("checked"));
-            navTag.classList.removew("checked");
+            navTag.classList.remove("checked");
           }
         }
       }
-
+      console.log(active);
       filterMedia();
     })
   );
 
   //test de filtrage de photographs
   function filterMedia() {
-    let mediasWanted = document.querySelectorAll()`[data-tags= ${TagClickedString}]`);
-    for (let mediacount = 0; mediacount < allMedias.length; mediacount++) {
-      let actualMedia = document.getElementById("card-" + allMedias.id);
-      if (
-        allMedias[mediacount].tags.filter((valeur) =>
-          active.includes(valeur)
-        ) != "" ||
-        active.length === 0
-      ) {
-        actualMedia.style.display = "block";
-      } else {
-        actualMedia.style.display = "none";
+    let allMedias = document.querySelectorAll('.media');
+
+    allMedias.forEach(media => {
+      if (active.length === 0) {
+        media.style.display = "block";
+      }else{
+        media.style.display = "none";
       }
-    }
+    });
+
+    active.forEach(tag => {
+
+      let mediasWanted = document.querySelectorAll(`[data-tags="${tag}"]`);
+
+      mediasWanted.forEach(media => {
+        media = media.parentElement;
+        console.log();
+      if (media.style.display === "none") {
+        media.style.display = "block";
+      } else {
+        media.style.display = "none";
+      }
+      });
+
+    });
+
   }
 }

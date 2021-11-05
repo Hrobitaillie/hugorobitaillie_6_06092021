@@ -2,11 +2,16 @@ export function contactModal(activePhotograph){
     let modal = document.getElementById('contact');
     modal.style.display="flex";
 
+    document.body.classList.add("no-scroll");
+
     const modalContent = document.querySelector('.modal--container');
     modalContent.ariaLabel=`Contact me ${activePhotograph.name}`;
 
     let closeModal = modal.querySelector('.fa-times');
-    closeModal.addEventListener("click",()=>{modal.style.display = "none"});
+    closeModal.addEventListener("click",()=>{
+        modal.style.display = "none";
+        document.body.classList.remove("no-scroll");
+    });
 
     let contactName = document.querySelector(".modal--title__name");
     contactName.innerHTML = `${activePhotograph.name}`;
@@ -93,6 +98,7 @@ export function contactModal(activePhotograph){
         //Checking if everything is ok
         if(firstOk == true && lastOk == true && mailOk == true && messageOk == true){
             modal.style.display = "none";
+            document.body.classList.remove("no-scroll");
             //Open Confirm Modal
             console.log("Prénom: " + first.value);
             console.log("Nom: " + last.value);

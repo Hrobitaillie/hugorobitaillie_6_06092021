@@ -14,6 +14,8 @@ for (i = 0; i < customSelectLength; i++) {
   */
   a = document.createElement("DIV");
   a.setAttribute("class", "select-selected");
+  a.setAttribute("tabindex","0");
+  a.setAttribute("aria-label","Order By");
   a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
   customSelect[i].appendChild(a);
   /* 
@@ -29,6 +31,7 @@ for (i = 0; i < customSelectLength; i++) {
     */
     c = document.createElement("DIV");
     c.innerHTML = selElmnt.options[j].innerHTML;
+    c.setAttribute("tabindex","0");
     c.addEventListener("click", function(e) {
       
         /* 

@@ -14,7 +14,7 @@ export function mediaBuilder(currentPhotographerMedias){
             pathMedia = pathMedia+'.webp';
 
             if(element.video === undefined){
-                mediaContent.innerHTML += `
+                mediaContent.innerHTML += ` 
                 <article class= "media" id="image-${element.id}">
                     <div class= "media-cover"
                     data-title = "${element.title}"
@@ -23,6 +23,7 @@ export function mediaBuilder(currentPhotographerMedias){
                     data-likes = "${element.likes}"
                     data-tags = "${element.tags}"
                     aria-label="${element.title}, closeup view"
+                    tabindex="0"
                     >
                     <img src="${pathMedia}" alt="">
                     </div>
@@ -30,7 +31,7 @@ export function mediaBuilder(currentPhotographerMedias){
                         <p class="media-title">${element.title}</p>
                         <div class="media-likes">
                             <p>${element.likes}</p>
-                            <i class="fas fa-heart" aria-label="Likes"></i>
+                            <i tabindex="0" class="fas fa-heart" aria-label="Likes" aria-hidden="false"></i>
                         </div>
                     </div>
                 </article>
@@ -45,14 +46,15 @@ export function mediaBuilder(currentPhotographerMedias){
                     data-likes = "${element.likes}"
                     data-tags = "${element.tags}"
                     aria-label="${element.title}, closeup view"
+                    tabindex="0"
                     >
-                    <video src="../img/${element.photographerId}/${element.video}" alt="">
+                    <video src="../img/${element.photographerId}/${element.video}" alt="${element.title}">
                     </div>
                     <div class="media-infos">
                         <p class="media-title">${element.title}</p>
                         <div class="media-likes">
                             <p>${element.likes}</p>
-                            <i class="fas fa-heart" aria-label="Likes"></i>
+                            <i tabindex="0" class="fas fa-heart" aria-label="Likes" aria-hidden="false"></i>
                         </div>
                     </div>
                 </article>
