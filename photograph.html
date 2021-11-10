@@ -73,34 +73,34 @@
     </section>
     <section id="contact" class="modal">
         <div class="modal--container" aria-labelledby="contact-title">
-            <i class="fas fa-times" aria-label="Close dialog"></i>
-            <h1 class="modal--title" id="contact-title">Contactez moi <br> <span class="modal--title__name"></span></h1>
+            <i tabindex="2" class="fas fa-times" aria-label="Close dialog"></i>
+            <h1 tabindex="2" class="modal--title" id="contact-title">Contactez moi <br> <span class="modal--title__name"></span></h1>
             <form id="form" action="" name="contact" method="get">
                 <div>
-                    <label for="prenom">Prénom</label>
-                    <input id="prenom" type="text" name="prenom">
+                    <label tabindex="2" for="prenom">Prénom</label>
+                    <input tabindex="2" id="prenom" type="text" name="prenom">
                     <div id="firstError"></div>
                 </div>
                 <div>
-                    <label for="nom">Nom</label>
-                    <input id="nom" type="text" name="nom">
+                    <label tabindex="2" for="nom">Nom</label>
+                    <input tabindex="2" id="nom" type="text" name="nom">
                     <div id="lastError"></div>
                 </div>
                 <div>
-                    <label for="email">Email</label>
-                    <input id="email" type="mail" name="email">
+                    <label tabindex="2" for="email">Email</label>
+                    <input tabindex="2" id="email" type="mail" name="email">
                     <div id="emailError"></div>
                 </div>
                 <div>
-                    <label for="message">Votre Message</label>
-                    <textarea name="message" id="message" cols="30" rows="10" ></textarea>
+                    <label tabindex="2" for="message">Votre Message</label>
+                    <textarea tabindex="2" name="message" id="message" cols="30" rows="10" ></textarea>
                     <div id="messageError"></div>
                 </div>
-                <input class="btn-submit" type="submit" value="Envoyer"
+                <input tabindex="2" class="btn-submit" type="submit" value="Envoyer"
               />
             </form>
         </div>
     </section>
-    <script type="module" src="/js/PhotographerPage/photographerPage.js"></script> <!-- contient le fetch + appel de la fonction pageLoading ()  -->
+    <script type="module" src="./js/PhotographerPage/photographerPage.js"></script> <!-- contient le fetch + appel de la fonction pageLoading ()  -->
 </body>
 </html>

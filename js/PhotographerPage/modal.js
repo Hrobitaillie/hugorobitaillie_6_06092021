@@ -1,20 +1,66 @@
 export function contactModal(activePhotograph){
+    // appel de la fonction pour activer la navgation clavier
+    // seulement sur la modale
+    navOnlyModal();
+
+    // Cette fonction permet desactiver/activer
+    // la navigation clavier de la page lors
+    // pour se focaliser sur la navigation de la modale
+
+    function navOnlyModal(){
+        if(document.body.classList.contains("no-scroll")){
+            let tabindex = document.querySelectorAll('[tabindex = "0"]');
+            tabindex.forEach(element => {
+                element.setAttribute("tabindex","-1");
+            });
+        }else{
+            let tabindex = document.querySelectorAll('[tabindex = "-1"]');
+            tabindex.forEach(element => {
+            element.setAttribute("tabindex","0");
+        });
+        }
+    }
+
+    // selection et affichage de la modale
     let modal = document.getElementById('contact');
     modal.style.display="flex";
 
+    // blocage du scroll sur le body
     document.body.classList.add("no-scroll");
 
+    // définit le aria-label de la modal en fonction du nom du photographe
     const modalContent = document.querySelector('.modal--container');
     modalContent.ariaLabel=`Contact me ${activePhotograph.name}`;
 
+    // Detection du click sur le bouton de fermeture
+    // fermeture de la modale
+    // reactivation de la navigation clavier sur la page
+    // reactivation du scroll
     let closeModal = modal.querySelector('.fa-times');
     closeModal.addEventListener("click",()=>{
         modal.style.display = "none";
+        navOnlyModal();
         document.body.classList.remove("no-scroll");
     });
 
+    // Ecriture du nom du photographe dans le titre de la modale
     let contactName = document.querySelector(".modal--title__name");
     contactName.innerHTML = `${activePhotograph.name}`;
+
+
+    // detection de la pression sur la touche Echape
+    // fermeture de la modale
+    // reactivation de la navigation clavier sur la page
+    // reactivation du scroll
+    document.addEventListener('keydown',(event)=>{
+        navOnlyModal();
+        if(event.key === 'Escape'){
+            if(document.body.classList.contains("no-scroll")){
+                modal.style.display = "none";
+                document.body.classList.remove("no-scroll");
+            }
+        }
+    })
 
     //---------------------------------------------------------------
     //---------------------------------------------------------------
@@ -98,8 +144,9 @@ export function contactModal(activePhotograph){
         //Checking if everything is ok
         if(firstOk == true && lastOk == true && mailOk == true && messageOk == true){
             modal.style.display = "none";
+            navOnlyModal();
             document.body.classList.remove("no-scroll");
-            //Open Confirm Modal
+            // Ecriture des informations dans la console
             console.log("Prénom: " + first.value);
             console.log("Nom: " + last.value);
             console.log("Email: " + email.value);
