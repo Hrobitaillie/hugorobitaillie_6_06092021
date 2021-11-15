@@ -244,6 +244,11 @@ span, a {
 header {
   padding: 0 50px;
 }
+@media screen and (max-width: 768px) {
+  header {
+    padding: 0;
+  }
+}
 header #nav {
   justify-content: space-between;
   align-items: center;
@@ -252,6 +257,7 @@ header #nav {
 }
 @media screen and (max-width: 768px) {
   header #nav {
+    justify-content: center;
     padding: 20px;
     flex-wrap: wrap;
   }
@@ -421,6 +427,13 @@ header #nav nav ul .checked span {
   padding: 35px;
   overflow-y: scroll;
 }
+@media screen and (max-width: 768px) {
+  .modal--container {
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+  }
+}
 .modal--container .fa-times {
   position: absolute;
   top: 35px;
@@ -435,6 +448,12 @@ header #nav nav ul .checked span {
   line-height: 83px;
   margin: 0;
 }
+@media screen and (max-width: 768px) {
+  .modal--container h1 {
+    font-size: 36px;
+    line-height: 46.87px;
+  }
+}
 .modal--container h1 span {
   color: black;
 }
@@ -442,10 +461,22 @@ header #nav nav ul .checked span {
   display: flex;
   flex-direction: column;
 }
+@media screen and (max-width: 768px) {
+  .modal--container form {
+    margin-top: 15px;
+    gap: 15px;
+  }
+}
 .modal--container form label {
   font-size: 36px;
   line-height: 47px;
   color: #312E2E;
+}
+@media screen and (max-width: 768px) {
+  .modal--container form label {
+    font-size: 24px;
+    line-height: 31px;
+  }
 }
 .modal--container form input {
   width: 100%;
@@ -617,7 +648,7 @@ header #nav nav ul .checked span {
 }
 #photographMedia .custom-select {
   position: relative;
-  z-index: 10;
+  z-index: 0;
   /* style the items (options), including the selected item: */
   /* Style items (options): */
   /* Hide the items when the select box is closed: */

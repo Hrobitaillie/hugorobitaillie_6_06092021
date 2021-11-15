@@ -1,11 +1,15 @@
 header{
     padding: 0 50px;
+    @include tablet{
+        padding: 0;
+    }
     #nav{
         justify-content: space-between;
         align-items: center;
         row-gap: 40px;
         gap: 3rem;
         @include tablet{
+            justify-content: center;
             padding: 20px;
             flex-wrap: wrap;
         }
