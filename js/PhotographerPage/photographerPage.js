@@ -1,18 +1,17 @@
-import { photographerData } from '../Component/photographerCard.js';
-import { filterDropDown } from '../PhotographerPage/filterDropDown.js';
-import { verifySessionStorage } from '../Utils/gettingData.js';
-import { mediaBuilder } from '../Component/models.js'
-import { filtering } from './mediaContent.js';
-import { openLightBox } from './lightBox.js';
-import { contactModal } from './modal.js';
-import { mediaTagFiltering } from './mediaTagFilter.js';
+import { photographerData } from "../Component/photographerCard.js";
+import { filterDropDown } from "../PhotographerPage/filterDropDown.js";
+import { verifySessionStorage } from "../Utils/gettingData.js";
+import { filtering } from "./mediaContent.js";
+import { openLightBox } from "./lightBox.js";
+import { contactModal } from "./modal.js";
+import { mediaTagFiltering } from "./mediaTagFilter.js";
 
 await verifySessionStorage();
 /*
     Récupération des photographes dans la sessionStorage
     et conversion du string en objet js.
 */
-const allPhotographers = sessionStorage.getItem('photographers');
+const allPhotographers = sessionStorage.getItem("photographers");
 const photographers = JSON.parse(allPhotographers);
 
 
@@ -20,7 +19,7 @@ const photographers = JSON.parse(allPhotographers);
 let url = (new URL(document.location)).searchParams;
 
 //récupération de l'id du pohotograph
-let idOfPhotograph = url.get('id');
+let idOfPhotograph = url.get("id");
 
 //récupération des éléments du dom
 let name = document.querySelector(".name");
@@ -66,14 +65,14 @@ let selectSelected = document.querySelector(".select-selected");
 */
 filtering(currentPhotographerMedias,selectSelected);
 
-mediaTagFiltering(currentPhotographerMedias)
+mediaTagFiltering(currentPhotographerMedias);
 
 /*
     Appel de la fonction filtering après un clic
     sur un des éléments de filtrage.
 
 */
-filterItem.addEventListener("click", function(){filtering(currentPhotographerMedias,selectSelected)});
+filterItem.addEventListener("click", function(){filtering(currentPhotographerMedias,selectSelected);});
 
 //récupération des icones de coeurs de chauqe media
 let hearts = document.querySelectorAll(".fa-heart");
@@ -108,18 +107,14 @@ hearts.forEach( heartClicked =>
 );
 
 
-const mediaCover = document.querySelectorAll('.media-cover');
-console.log(mediaCover);
 
-mediaCover.forEach(mediaCover => mediaCover.addEventListener("click",openLightBox));
 
 const contactbutton = document.querySelector(".contactMe");
-contactbutton.addEventListener("click",() => {contactModal(activePhotograph)});
+contactbutton.addEventListener("click",() => {contactModal(activePhotograph);});
 
-document.addEventListener('keydown',(event)=>{
-    if(event.key === 'Enter'){
-        console.log(event.target);
-        console.log("Touche Enter appuyée");
+document.addEventListener("keydown",(event)=>{
+    if(event.key === "Enter"){
+        console.log(event);
         event.target.click();
     }
-})
+});

@@ -10,23 +10,23 @@ export function filtering(currentPhotographerMedias,selectSelected){
         filteredTable = currentPhotographerMedias.sort(function(a,b){
             if(a.likes < b.likes) {return 1;}
             if(a.likes > b.likes) {return -1;}
-            return 0
-        })
+            return 0;
+        });
     }
     if(selectedFilter === "Date"){
         filteredTable = currentPhotographerMedias.sort(function(a,b){
             if(a.date < b.date) {return 1;}
             if(a.date > b.date) {return -1;}
-            return 0
-        })
+            return 0;
+        });
     }
     if(selectedFilter === "Titre"){
         filteredTable = currentPhotographerMedias.sort(function(a,b){
             if(a.title < b.title) {return -1;}
             if(a.title > b.title) {return 1;}
-            return 0
-        })
+            return 0;
+        });
     }
 
     mediaBuilder(currentPhotographerMedias);
-};
+}

@@ -1,7 +1,7 @@
-import {verifySessionStorage,getPhotographers} from './Utils/gettingData.js';
-import {gettingTags,addingTagsIntoNavbar} from './Utils/gettingTags.js';
-import {addingPhotographersIntoBody} from './Component/photographerCard.js';
-import {filtering} from './Utils/tagFiltering.js';
+import {verifySessionStorage,getPhotographers} from "./Utils/gettingData.js";
+import {gettingTags,addingTagsIntoNavbar} from "./Utils/gettingTags.js";
+import {addingPhotographersIntoBody} from "./Component/photographerCard.js";
+import {filtering} from "./Utils/tagFiltering.js";
 
 async function startup(){
 
@@ -21,8 +21,7 @@ async function startup(){
     /*
         Récupérations de tous les photographes
     */
-    const allPhotographers = await getPhotographers()
-    console.log(allPhotographers);
+    const allPhotographers = await getPhotographers();
 
     /*
         Récupération de la liste totale des tags présents,
@@ -38,12 +37,21 @@ async function startup(){
 
     filtering(allPhotographers);
 
-
-    document.addEventListener('keydown',(event)=>{
-        if(event.key === 'Enter'){
-            console.log("clocked enter");
+    const passToContentButton = document.getElementById("passToContent");
+    document.addEventListener("keydown",(event)=>{
+        if(event.key === "Enter"){
             event.target.click();
         }
+        if(event.key == "Tab"){
+            passToContentButton.style.display="flex"
+        }
+    });
+
+    passToContentButton.addEventListener("click", () => {
+        console.log("click");
+        let firstElementContent = document.getElementsByClassName("photograph-card")[0];
+        console.log(firstElementContent);
+        firstElementContent.childNodes[1].focus();
     })
 }
 

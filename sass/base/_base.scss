@@ -77,7 +77,7 @@ ul{
     color:$light_base-color;
 }
 .second-color-light{
-    color:$light_base-color;
+    color: lighten( $second-color, 50%);
 }
 .no-scroll{
     overflow: hidden;

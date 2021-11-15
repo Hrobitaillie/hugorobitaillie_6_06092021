@@ -10,6 +10,12 @@ h1{
     line-height: 47px;
     @extend %colorred;
 }
+h2{
+    font-size: 36px;
+    margin-bottom: 0;
+    font-weight: 400;
+    color: #D3573C;
+}
 span,a{
     font-family: 'DM Sans', sans-serif;
     @extend %colorred;

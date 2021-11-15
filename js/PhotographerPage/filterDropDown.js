@@ -32,7 +32,7 @@ for (i = 0; i < customSelectLength; i++) {
     c = document.createElement("DIV");
     c.innerHTML = selElmnt.options[j].innerHTML;
     c.setAttribute("tabindex","0");
-    c.addEventListener("click", function(e) {
+    c.addEventListener("click", function() {
       
         /* 
         Quand un choix est fait, mise a jour du choix 
@@ -85,7 +85,7 @@ function closeAllSelect(elmnt) {
   yl = y.length;
   for (i = 0; i < yl; i++) {
     if (elmnt == y[i]) {
-      arrNo.push(i)
+      arrNo.push(i);
     } else {
       y[i].classList.remove("select-arrow-active");
     }

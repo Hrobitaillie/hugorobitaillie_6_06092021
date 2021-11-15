@@ -9,12 +9,12 @@ export function contactModal(activePhotograph){
 
     function navOnlyModal(){
         if(document.body.classList.contains("no-scroll")){
-            let tabindex = document.querySelectorAll('[tabindex = "0"]');
+            let tabindex = document.querySelectorAll("[tabindex = \"0\"]");
             tabindex.forEach(element => {
                 element.setAttribute("tabindex","-1");
             });
         }else{
-            let tabindex = document.querySelectorAll('[tabindex = "-1"]');
+            let tabindex = document.querySelectorAll("[tabindex = \"-1\"]");
             tabindex.forEach(element => {
             element.setAttribute("tabindex","0");
         });
@@ -22,21 +22,21 @@ export function contactModal(activePhotograph){
     }
 
     // selection et affichage de la modale
-    let modal = document.getElementById('contact');
+    let modal = document.getElementById("contact");
     modal.style.display="flex";
 
     // blocage du scroll sur le body
     document.body.classList.add("no-scroll");
 
     // définit le aria-label de la modal en fonction du nom du photographe
-    const modalContent = document.querySelector('.modal--container');
+    const modalContent = document.querySelector(".modal--container");
     modalContent.ariaLabel=`Contact me ${activePhotograph.name}`;
 
     // Detection du click sur le bouton de fermeture
     // fermeture de la modale
     // reactivation de la navigation clavier sur la page
     // reactivation du scroll
-    let closeModal = modal.querySelector('.fa-times');
+    let closeModal = modal.querySelector(".fa-times");
     closeModal.addEventListener("click",()=>{
         modal.style.display = "none";
         navOnlyModal();
@@ -52,42 +52,42 @@ export function contactModal(activePhotograph){
     // fermeture de la modale
     // reactivation de la navigation clavier sur la page
     // reactivation du scroll
-    document.addEventListener('keydown',(event)=>{
+    document.addEventListener("keydown",(event)=>{
         navOnlyModal();
-        if(event.key === 'Escape'){
+        if(event.key === "Escape"){
             if(document.body.classList.contains("no-scroll")){
                 modal.style.display = "none";
                 document.body.classList.remove("no-scroll");
             }
         }
-    })
+    });
 
     //---------------------------------------------------------------
     //---------------------------------------------------------------
     //---------------------------------------------------------------
 
     //DOM Elements validation
-    const form = document.getElementById('form');
-    const first = document.getElementById('prenom');
-    const last = document.getElementById('nom');
-    const email = document.getElementById('email');
-    const message = document.getElementById('message');
+    const form = document.getElementById("form");
+    const first = document.getElementById("prenom");
+    const last = document.getElementById("nom");
+    const email = document.getElementById("email");
+    const message = document.getElementById("message");
 
 
     //DOM Elements Erorr
-    const firstError = document.getElementById('firstError');
-    const lastError = document.getElementById('lastError');
-    const emailError = document.getElementById('emailError');
-    const messageError = document.getElementById('messageError');
+    const firstError = document.getElementById("firstError");
+    const lastError = document.getElementById("lastError");
+    const emailError = document.getElementById("emailError");
+    const messageError = document.getElementById("messageError");
 
 
     //---------------------------------------------------------------
     //---------------------------------------------------------------
     //---------------------------------------------------------------
-    form.addEventListener('submit', (e) => {
+    form.addEventListener("submit", (e) => {
     e.preventDefault();
     validate();
-    })
+    });
 
     function validate(){
 

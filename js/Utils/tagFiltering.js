@@ -9,11 +9,9 @@ export function filtering(allPhotographers) {
 
   allTagsClickable.forEach((TagClicked) =>
     //Evenement click sur un tag
-    TagClicked.addEventListener("click", (e) => {
+    TagClicked.addEventListener("click", () => {
       //Selection de l'enfant "span" , de son texte et supression du hashtag
-      console.log(TagClicked);
       TagClickedString = TagClicked.childNodes[1].textContent.slice(1);
-      console.log(TagClickedString);
       //creation d'une liste de tous les tags actifs de la page via le aria label
       let list = document.querySelectorAll(`[aria-label="${TagClickedString}"]`);
       let navTag = document.querySelector(`[aria-label="${TagClickedString} Tag"]`);

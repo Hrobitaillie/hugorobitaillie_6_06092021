@@ -1,4 +1,4 @@
-export function mediaTagFiltering(allMedias) {
+export function mediaTagFiltering() {
   //creation d'un tableau pour les tags actifs
   let active = [];
 
@@ -9,11 +9,10 @@ export function mediaTagFiltering(allMedias) {
 
   allTagsClickable.forEach((TagClicked) =>
     //Evenement click sur un tag
-    TagClicked.addEventListener("click", (e) => {
+    TagClicked.addEventListener("click", () => {
       //Selection de l'enfant "span" , de son texte et supression du hashtag
       TagClickedString =
         TagClicked.childNodes[1].textContent.slice(1);
-      console.log(TagClickedString);
       //creation d'une liste de tous les tags actifs de la page via le aria label
       let list = document.querySelectorAll(
         `[aria-label="${TagClickedString}"]`
@@ -39,14 +38,13 @@ export function mediaTagFiltering(allMedias) {
           }
         }
       }
-      console.log(active);
       filterMedia();
     })
   );
 
   //test de filtrage de photographs
   function filterMedia() {
-    let allMedias = document.querySelectorAll('.media');
+    let allMedias = document.querySelectorAll(".media");
 
     allMedias.forEach(media => {
       if (active.length === 0) {
@@ -62,7 +60,6 @@ export function mediaTagFiltering(allMedias) {
 
       mediasWanted.forEach(media => {
         media = media.parentElement;
-        console.log();
       if (media.style.display === "none") {
         media.style.display = "block";
       } else {

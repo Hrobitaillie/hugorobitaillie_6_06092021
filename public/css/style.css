@@ -93,7 +93,7 @@ ul {
 }
 
 .second-color-light {
-  color: #DB8876;
+  color: gray;
 }
 
 .no-scroll {
@@ -111,6 +111,13 @@ h1 {
   line-height: 47px;
 }
 
+h2 {
+  font-size: 36px;
+  margin-bottom: 0;
+  font-weight: 400;
+  color: #D3573C;
+}
+
 span, a {
   font-family: "DM Sans", sans-serif;
 }
@@ -120,7 +127,6 @@ span, a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 313px;
 }
 @media screen and (max-width: 768px) {
   .photograph-card__title {
@@ -156,26 +162,25 @@ span, a {
 }
 .photograph-card p {
   text-align: center;
+  margin: 0;
 }
-@media screen and (max-width: 768px) {
-  .photograph-card p {
-    margin: 0;
-  }
-  .photograph-card p .base-color {
-    font-size: 13px;
-    line-height: 17px;
-  }
-  .photograph-card p .second-color {
-    font-size: 10px;
-    line-height: 13px;
-  }
-  .photograph-card p .second-color-light {
-    font-size: 9px;
-    line-height: 12px;
-  }
+.photograph-card p .base-color {
+  font-size: 13px;
+  line-height: 17px;
+}
+.photograph-card p .second-color {
+  font-size: 10px;
+  line-height: 13px;
+}
+.photograph-card p .second-color-light {
+  font-size: 9px;
+  line-height: 12px;
 }
 .photograph-card p > * {
   display: block;
+}
+.photograph-card ul span {
+  font-size: 12px;
 }
 
 .media {
@@ -407,6 +412,28 @@ header #nav nav ul .checked span {
   margin: 0;
 }
 
+#passToContent {
+  background-color: #DB8876;
+  color: black;
+  width: fit-content;
+  height: 30px;
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 0;
+  border-radius: 5px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+}
+#passToContent p {
+  margin: 0;
+}
+
 .modal {
   position: fixed;
   width: 100%;
@@ -559,6 +586,7 @@ header #nav nav ul .checked span {
   font-weight: normal;
   font-size: 64px;
   line-height: 83px;
+  color: #D3573C;
 }
 @media screen and (max-width: 768px) {
   #photographAbout > :first-child h1 {

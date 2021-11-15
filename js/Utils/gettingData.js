@@ -2,7 +2,7 @@ import { photographBuilder } from "../factory.js";
 async function getData(){
     const response = await fetch("./database.json");
     const data = await response.json();
-    sessionStorage.setItem('photographers',JSON.stringify(dataSorter(data)));
+    sessionStorage.setItem("photographers",JSON.stringify(dataSorter(data)));
 
 }
 function dataSorter(data){
@@ -15,21 +15,19 @@ function dataSorter(data){
     })=> {
         const photographMedia = photographersMedia.filter((photographersMedia) => photographersMedia.photographerId === id);
         let mediaLike = 0;
-        const TotalLikes = photographMedia.forEach(media => {
+        photographMedia.forEach(media => {
             mediaLike = mediaLike + media.likes;
         });
 
         let photograph = new photographBuilder(name,id,city,country,tags,tagline,price,portrait,photographMedia,mediaLike);
         photographers.push(photograph);
     });
-    console.log("Photographes après le builder:");
-    console.log(photographers);
     return photographers;
 }
 
 
 export async function getPhotographers(){
-    const allPhotographers = sessionStorage.getItem('photographers');
+    const allPhotographers = sessionStorage.getItem("photographers");
     const result = JSON.parse(allPhotographers);
     return result;
 }

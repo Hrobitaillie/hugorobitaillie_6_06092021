@@ -1,17 +1,17 @@
+import { openLightBox } from "../PhotographerPage/lightBox.js"
+
 export function mediaBuilder(currentPhotographerMedias){
     const mediaContent = document.querySelector(".media-content");
     mediaContent.innerHTML ="";
-    mediaHTMLBuilder(mediaContent)
+    mediaHTMLBuilder(mediaContent);
     function mediaHTMLBuilder(mediaContent){
         currentPhotographerMedias.forEach((element) =>{
-            let cover;
-            let coversrc;
 
             //saving .jpeg path
             let pathMedia = `./img/${element.photographerId}/${element.image}`;
             //replace .jpeg to .webp
             // pathMedia = pathMedia.replace(/\.[^/.]+$/, "");
-            pathMedia = pathMedia+'.webp';
+            pathMedia = pathMedia+".webp";
 
             if(element.video === undefined){
                 mediaContent.innerHTML += ` 
@@ -64,7 +64,8 @@ export function mediaBuilder(currentPhotographerMedias){
             
         });
     }
-
+    const mediaCover = document.querySelectorAll(".media-cover");
+    mediaCover.forEach(mediaCover => mediaCover.addEventListener("click",openLightBox));
 }
 {/* <article class="media" id="image-">
 <div class="media-cover">

@@ -11,22 +11,22 @@ export let photographBuilder = class photographBuilder{
         this.medias = medias;
         this.likes = likes;
     }
-}
+};
 
 export let photographCardBuilder = class photographCardBuilder extends photographBuilder{
-    constructor(name,id,city,country,tags,tagline,price,portrait,domMain,number){
+    constructor(name,id,city,country,tags,tagline,price,portrait,domMain){
         super(name,id,city,country,tags,tagline,price,portrait);
         let pathPortrait = `${this.portrait}`;
-        pathPortrait = pathPortrait+'.webp';
+        pathPortrait = pathPortrait+".webp";
 
         //verification du nombre de tags du photographs
         let tagLength = this.tags.length;
-        let thisPhotographTags ='';
+        let thisPhotographTags ="";
         for(let j = 0; j < tagLength ; j++){
             thisPhotographTags +=`
                     <li tabindex="0" class="tag" aria-label="${this.tags[j]}">
                         <span class="tagClickable">#${this.tags[j]}</span>
-                    </li>`
+                    </li>`;
         }
 
 
@@ -36,12 +36,12 @@ export let photographCardBuilder = class photographCardBuilder extends photograp
                     <div class="photograph-card__img">
                         <img src="./img/Photographers ID Photos/${pathPortrait}" alt="Photograph: ${this.name} Avatar">
                     </div>
-                    <h2 class="photograph-card__title base-color-light">${this.name}</h2>
+                    <h2 class="photograph-card__title">${this.name}</h2>
                 </a>
                 <p>
-                    <span class="base-color">${this.city},${this.country}</span>
-                    <span class="second-color">${this.tagline}</span>
-                    <span class="second-color-light">${this.price}€/jour</span>
+                    <span class="base-color city">${this.city},${this.country}</span>
+                    <span class="second-color tagline">${this.tagline}</span>
+                    <span class="second-color-light price">${this.price}€/jour</span>
                 </p>
                 <ul class="photograph-list__tags list__tags">
                     ${thisPhotographTags}
@@ -49,4 +49,4 @@ export let photographCardBuilder = class photographCardBuilder extends photograp
             </article>
                `;
     }
-}
+};

@@ -100,3 +100,24 @@
         margin: 0;
     }
 }
+#passToContent{
+    background-color: $light_base_color;
+    color: black;
+    width: fit-content;
+    height: 30px;
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 0;
+    border-radius: 5px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding:6px;
+    p{
+        margin: 0;
+    }
+}

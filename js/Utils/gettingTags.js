@@ -14,11 +14,11 @@ export function gettingTags(allPhotographers,tags){
 
     //ajout des tags dans la variable allTagsString de type string
     for (let i = 0; i <= tags.length-1; i++){
-        allTagsString += tags[i].tags + ',';
+        allTagsString += tags[i].tags + ",";
     }
 
     //transformation de la variable de type string en tableau en les séparant avec les ","
-    tags = allTagsString.split(',')
+    tags = allTagsString.split(",");
 
     //Set permet de stoquer des valeurs d'un tableau en supprimant tous les doublons
     tags = new Set(tags);
