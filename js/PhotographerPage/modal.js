@@ -100,7 +100,8 @@ export function contactModal(activePhotograph){
         if(first.value.length<2 || first.value == Number){
             firstError.style.display="block";
             firstError.innerHTML = "Ecrivez un prénom de plus de 2 lettres";
-            firstError.style.color="red";
+            firstError.style.color="white";
+            firstError.style.fontStyle="italic";
             firstError.style.fontSize="14px";
         }else{
             firstError.style.display="none";
@@ -111,7 +112,8 @@ export function contactModal(activePhotograph){
         if(last.value.length<2 || last.value == Number){
             lastError.style.display="block";
             lastError.innerHTML = "Ecrivez un nom de plus de 2 lettres";
-            lastError.style.color="red";
+            lastError.style.color="white";
+            lastError.style.fontStyle="italic";
             lastError.style.fontSize="14px";
         }else{
             lastError.style.display="none";
@@ -123,7 +125,8 @@ export function contactModal(activePhotograph){
         if(!(mailformat.test(email.value))){
             emailError.style.display="block";
             emailError.innerHTML = "Merci d'entrer un Email valide";
-            emailError.style.color="red";
+            emailError.style.color="white";
+            emailError.style.fontStyle="italic";
             emailError.style.fontSize="14px";
         }else{
             emailError.style.display="none";
@@ -133,8 +136,9 @@ export function contactModal(activePhotograph){
         //checking message not empty
         if(message.value.length<4){
             messageError.style.display="block";
-            messageError.innerHTML = "Merci d'écrire un message";
-            messageError.style.color="red";
+            messageError.innerHTML = "Votre message doit contenir au moins 4 caractères";
+            messageError.style.color="white";
+            messageError.style.fontStyle="italic";
             messageError.style.fontSize="14px";
         }else{
             messageError.style.display="none";

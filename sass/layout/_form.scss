@@ -93,6 +93,12 @@
                 line-height: 23px;
                 margin-top: 26px;
                 cursor: pointer;
+                @include tablet{
+                    margin: auto;
+                    height: 35px;
+                    width: 170px;
+                    line-height: 0
+                }
             }
         }
     }
